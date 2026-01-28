@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>3D Weather visualization model</title>
+
+  <!-- Cesium -->
+  <script src="https://cesium.com/downloads/cesiumjs/releases/1.120/Build/Cesium/Cesium.js"></script>
+  <link href="https://cesium.com/downloads/cesiumjs/releases/1.120/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div id="cesiumContainer"></div>
+
+  <div id="controlUI">
+  <!-- HEIGHT -->
+  <div class="uiRow" id="heightRow">
+    <div class="uiTitle">Height (hpa)</div>
+    <div class="uiBtns" id="heightBtns">
+      <button class="btn active" data-level="surface">Surface</button>
+      <button class="btn" data-level="850">850</button>
+      <button class="btn" data-level="700">700</button>
+      <button class="btn" data-level="500">500</button>
+    </div>
+  </div>
+
+  <!-- OVERLAY -->
+  <div class="uiRow">
+    <div class="uiTitle">Overlay</div>
+    <div class="uiBtns" id="overlayBtns">
+      <button class="btn active" data-overlay="temp">Temp</button>
+      <button class="btn" data-overlay="wind">Wind</button>
+      <button class="btn" data-overlay="pressure">Pressure</button>
+      <button class="btn" data-overlay="cloud">Cloud</button>
+    </div>
+  </div>
+
+  <!-- 3D WIND TOGGLE -->
+  <div class="uiRow">
+    <div class="uiTitle">3D Wind</div>
+    <label class="switch">
+      <input id="wind3DToggle" type="checkbox" />
+      <span class="slider"></span>
+    </label>
+  </div>
+
+  <div class="uiRow">
+    <div id="tempUI">
+    <div class="row">
+      <div class="uiTitle">Time(hr):</div>
+      <input id="timeSlider" type="range" min="0" max="2" step="1" value="0"/>
+      <span id="timeLabel">000</span>
+    </div>
+  </div>
+  
+  </div>
+  </div>
+
+  <div id="legendVertical">
+    <span id="tempMax">-- °C</span>
+    <div class="bar"></div>
+    <span id="tempMin">-- °C</span>
+  </div>
+
+  <div id="tooltip"></div>
+
+  <script type="module" src="js/cesiumApp.js"></script>
+</body>
+</html>
